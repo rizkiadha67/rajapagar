@@ -1,0 +1,18 @@
+{
+  "src/assets/logo-icon.png": {
+    "file": "assets/logo-icon-BaS2k51N.png",
+    "src": "src/assets/logo-icon.png"
+  },
+  "src/main.jsx": {
+    "file": "assets/main-C6CPvoVm.js",
+    "name": "main",
+    "src": "src/main.jsx",
+    "isEntry": true,
+    "css": [
+      "assets/main-D5SN-QJ3.css"
+    ],
+    "assets": [
+      "assets/logo-icon-BaS2k51N.png"
+    ]
+  }
+}

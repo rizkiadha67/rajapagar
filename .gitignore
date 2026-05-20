@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Vite build output — regenerated via `npm run build`
+# dist/ (di-comment atau dihapus agar ikut ter-upload / tercopy)
+
+# OS & editor files
+.DS_Store
+Thumbs.db
+.vscode/
+*.swp
+*.swo
+
+# Env files
+.env
+.env.local
