@@ -274,7 +274,7 @@ Mohon infokan jadwal survey lokasi terdekat untuk pengukuran presisi. Terima kas
       location: 'BSD City, Tangerang',
       specs: 'Hollow Galvanis 50x100 SNI, Mesin DEA Italia',
       tag: 'Pagar Pintu Otomatis',
-      image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="%230F172A"/><path d="M50 150h300v100H50z" fill="none" stroke="%23DCA54A" stroke-width="4"/><path d="M80 150v100M120 150v100M160 150v100M200 150v100M240 150v100M280 150v100M320 150v100" stroke="%23DCA54A" stroke-width="2"/><circle cx="200" cy="80" r="20" fill="none" stroke="%23DCA54A"/><text x="50%" y="90%" fill="%23DCA54A" text-anchor="middle" font-family="sans-serif" font-size="14">PROYEK BSD CITY</text></svg>'
+      image: 'https://images.unsplash.com/photo-1621293954908-907141467fc7?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 2,
@@ -282,7 +282,7 @@ Mohon infokan jadwal survey lokasi terdekat untuk pengukuran presisi. Terima kas
       location: 'Menteng, Jakarta Pusat',
       specs: 'Double Frame Hollow 40x80, Tempered Glass 10mm',
       tag: 'Kanopi Premium',
-      image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="%231E293B"/><path d="M50 100l300-30M50 250V100M350 250V70" stroke="%23DCA54A" stroke-width="4" fill="none"/><line x1="100" y1="95" x2="100" y2="250" stroke="%23DCA54A" stroke-width="1"/><line x1="200" y1="85" x2="200" y2="250" stroke="%23DCA54A" stroke-width="1"/><text x="50%" y="90%" fill="%23DCA54A" text-anchor="middle" font-family="sans-serif" font-size="14">PROYEK MENTENG</text></svg>'
+      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 3,
@@ -290,7 +290,7 @@ Mohon infokan jadwal survey lokasi terdekat untuk pengukuran presisi. Terima kas
       location: 'Kebayoran Baru, Jakarta Selatan',
       specs: 'WF 150 Structure, Step Kayu Jati, Railing Sleek Gold',
       tag: 'Tangga & Railing',
-      image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="%230F172A"/><path d="M50 220h60v-40h60v-40h60v-40h60v-40h60" stroke="%23DCA54A" stroke-width="6" fill="none"/><text x="50%" y="90%" fill="%23DCA54A" text-anchor="middle" font-family="sans-serif" font-size="14">PROYEK SENOPATI</text></svg>'
+      image: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 4,
@@ -298,7 +298,7 @@ Mohon infokan jadwal survey lokasi terdekat untuk pengukuran presisi. Terima kas
       location: 'Kemang, Jakarta Selatan',
       specs: 'Solid Nako 16mm, Frame Border Plat 3mm',
       tag: 'Tralis Keamanan',
-      image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="%231E293B"/><rect x="100" y="50" width="200" height="180" fill="none" stroke="%23DCA54A" stroke-width="4"/><path d="M100 110h200M100 170h200M150 50v180M250 50v180" stroke="%23DCA54A" stroke-width="2"/><text x="50%" y="90%" fill="%23DCA54A" text-anchor="middle" font-family="sans-serif" font-size="14">PROYEK KEMANG</text></svg>'
+      image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80'
     }
   ];
 
@@ -883,7 +883,7 @@ Mohon infokan jadwal survey lokasi terdekat untuk pengukuran presisi. Terima kas
           <div className="about-segment-visual">
             <div className="about-segment-image-container" style={{ borderRadius: '16px', borderColor: '#FFFFFF', borderWidth: '4px' }}>
               <img 
-                src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='400' viewBox='0 0 500 400'><rect width='500' height='400' fill='%230F172A'/><path d='M50 50h400v300H50z' fill='none' stroke='%23DCA54A' stroke-width='6'/><circle cx='250' cy='200' r='80' fill='none' stroke='%23DCA54A' stroke-width='2'/><path d='M100 100l300 200M100 300l300-200' stroke='rgba(220,165,74,0.2)' stroke-width='1.5'/></svg>" 
+                src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80" 
                 alt="Fabrication Workshop PT Cahaya Jaya Berkah Nusantara" 
               />
             </div>
