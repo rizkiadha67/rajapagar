@@ -209,25 +209,13 @@ function rajapagar_get_initial_data() {
     
     if ($clean_route === 'profil-kami' || $clean_route === 'about-us') {
         $data['type'] = 'page';
-        $data['post'] = [
-            'title' => 'Profil Perusahaan – Architectural Metalwork & Luxury Gates',
-            'slug' => 'profil-kami',
-            'content' => ''
-        ];
-    } elseif ($clean_route === 'solusi') {
+        $data['post'] = rajapagar_get_page_by_slug('profil-kami', 'Profil Perusahaan – PT Cahaya Jaya Berkah Nusantara');
+    } elseif ($clean_route === 'solusi' || $clean_route === 'layanan') {
         $data['type'] = 'page';
-        $data['post'] = [
-            'title' => 'Solusi Fabrikasi Besi & Premium Gates – Rajapagar.id',
-            'slug' => 'solusi',
-            'content' => ''
-        ];
+        $data['post'] = rajapagar_get_page_by_slug('layanan', 'Solusi Fabrikasi Besi & Premium Gates – Rajapagar.id');
     } elseif ($clean_route === 'contact' || $clean_route === 'kontak') {
         $data['type'] = 'page';
-        $data['post'] = [
-            'title' => 'Hubungi Jasa Kami – Rajapagar.id',
-            'slug' => 'contact',
-            'content' => ''
-        ];
+        $data['post'] = rajapagar_get_page_by_slug('contact', 'Hubungi Jasa Kami – Rajapagar.id');
     } elseif ( is_front_page() || is_home() ) {
         $data['type'] = 'home';
         // Get latest 12 posts
@@ -452,33 +440,21 @@ function rajapagar_rest_route_handler($request) {
     if ($clean_path === 'profil-kami' || $clean_path === 'about-us') {
         return [
             'type' => 'page',
-            'post' => [
-                'title' => 'Profil Perusahaan – Architectural Metalwork & Luxury Gates',
-                'slug' => 'profil-kami',
-                'content' => ''
-            ],
+            'post' => rajapagar_get_page_by_slug('profil-kami', 'Profil Perusahaan – Architectural Metalwork & Luxury Gates'),
             'posts' => []
         ];
     }
-    if ($clean_path === 'solusi') {
+    if ($clean_path === 'solusi' || $clean_path === 'layanan') {
         return [
             'type' => 'page',
-            'post' => [
-                'title' => 'Solusi Fabrikasi Besi & Premium Gates – Rajapagar.id',
-                'slug' => 'solusi',
-                'content' => ''
-            ],
+            'post' => rajapagar_get_page_by_slug('layanan', 'Solusi Fabrikasi Besi & Premium Gates – Rajapagar.id'),
             'posts' => []
         ];
     }
     if ($clean_path === 'contact' || $clean_path === 'kontak') {
         return [
             'type' => 'page',
-            'post' => [
-                'title' => 'Hubungi Jasa Kami – Rajapagar.id',
-                'slug' => 'contact',
-                'content' => ''
-            ],
+            'post' => rajapagar_get_page_by_slug('contact', 'Hubungi Jasa Kami – Rajapagar.id'),
             'posts' => []
         ];
     }
@@ -686,3 +662,56 @@ function rajapagar_settings_page_callback() {
     </div>
     <?php
 }
+
+/**
+ * Helper to fetch page content from WordPress database or serve elegant default fallback
+ */
+function rajapagar_get_page_by_slug($slug, $fallback_title) {
+    $page = get_page_by_path($slug);
+    if ($page) {
+        return rajapagar_format_post($page);
+    }
+    // Elegant fallback if page not found in DB
+    return [
+        'title' => $fallback_title,
+        'slug' => $slug,
+        'content' => '<p>Silakan edit halaman ini melalui Dashboard WordPress Admin (Pages -> Edit) untuk mengubah tulisan di sini.</p>',
+        'excerpt' => '',
+        'image' => ''
+    ];
+}
+
+/**
+ * Auto-create default pages in WP database so they appear instantly in wp-admin Page list
+ */
+function rajapagar_create_default_pages() {
+    $default_pages = [
+        'profil-kami' => [
+            'title'   => 'Profil Perusahaan',
+            'content' => '<h3>Selamat Datang di PT Cahaya Jaya Berkah Nusantara</h3><p>Kami adalah penyedia jasa konstruksi baja berat, struktur besi, dan pengelasan logam tepercaya di Jabodetabek. Anda dapat mengedit seluruh tulisan ini di Dashboard admin WordPress (Pages -> Edit) untuk mengubah konten deskripsi visual ini.</p>'
+        ],
+        'layanan' => [
+            'title'   => 'Layanan Kami',
+            'content' => '<h3>Spesialis Konstruksi Logam SNI</h3><p>Kami memfabrikasi pagar besi otomatis kustom, kanopi tempered glass minimalis, tralis jendela anti-maling, dan tangga cafe industrial dengan hitungan ketebalan material jujur penuh.</p>'
+        ],
+        'contact' => [
+            'title'   => 'Hubungi Kami',
+            'content' => '<h3>Konsultasi Estimasi Biaya Las & Pemasangan</h3><p>Silakan hubungi kami untuk mendiskusikan rencana survey lokasi digital gratis dan hitungan detail bahan logam Anda se-Jabodetabek.</p>'
+        ]
+    ];
+
+    foreach ($default_pages as $slug => $page_data) {
+        $page = get_page_by_path($slug);
+        if (!$page) {
+            wp_insert_post([
+                'post_title'   => $page_data['title'],
+                'post_content' => $page_data['content'],
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+                'post_name'    => $slug
+            ]);
+        }
+    }
+}
+add_action('init', 'rajapagar_create_default_pages');
+
