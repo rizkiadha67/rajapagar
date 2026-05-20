@@ -55,6 +55,7 @@ export default function App({ initialState }) {
           menus: initialState.menus,
           theme_colors: initialState.theme_colors,
           contact: initialState.contact,
+          content_options: initialState.content_options,
           route_path: relativePath
         };
         

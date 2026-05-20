@@ -383,16 +383,11 @@ Mohon infokan jadwal survey lokasi terdekat untuk pengukuran presisi. Terima kas
             </div>
             
             <h1 className="hero-title" style={{ fontSize: '3.6rem', fontWeight: '900', letterSpacing: '-1.5px', marginBottom: '24px' }}>
-              Konstruksi Besi Kokoh, Estetis &amp; <span style={{
-                background: 'linear-gradient(to right, #DCA54A, #F0E6C5)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                display: 'inline'
-              }}>Bergaransi</span>
+              {data.content_options?.hero_title || "Konstruksi Besi Kokoh, Estetis & Bergaransi"}
             </h1>
             
             <p className="hero-desc" style={{ fontSize: '1.2rem', lineHeight: '1.7', color: '#CBD5E1', marginBottom: '36px', fontWeight: '300' }}>
-              Rajapagar.id mengerjakan pagar besi custom, kanopi tempered glass minimalis, tralis jendela anti-maling, dan tangga industrial — dengan jaminan bahan hollow SNI ketebalan asli, las keliling penuh, tanpa pengurangan material.
+              {data.content_options?.hero_desc || "Rajapagar.id mengerjakan pagar besi custom, kanopi tempered glass minimalis, tralis jendela anti-maling, dan tangga industrial — dengan jaminan bahan hollow SNI ketebalan asli, las keliling penuh, tanpa pengurangan material."}
             </p>
             
             <div className="hero-actions">

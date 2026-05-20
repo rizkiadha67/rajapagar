@@ -18,23 +18,23 @@ export default function About({ data }) {
   const steps = [
     {
       num: '01',
-      title: 'Survey & Pengukuran Digital',
-      desc: 'Tim kami mendatangi lokasi Anda di Jabodetabek secara gratis untuk mengukur dimensi pagar, kanopi, atau tangga menggunakan laser meter digital presisi milimeter.'
+      title: data.content_options?.step1_title || 'Survey & Pengukuran Digital',
+      desc: data.content_options?.step1_desc || 'Tim kami mendatangi lokasi Anda di Jabodetabek secara gratis untuk mengukur dimensi pagar, kanopi, atau tangga menggunakan laser meter digital presisi milimeter.'
     },
     {
       num: '02',
-      title: 'Desain Blueprints & Rencana SPK',
-      desc: 'Mendiskusikan motif desain (minimalis, klasik, industrial) serta menghitung ketebalan material hollow besi bergaransi standar SNI tebal penuh dalam SPK tertulis.'
+      title: data.content_options?.step2_title || 'Desain Blueprints & Rencana SPK',
+      desc: data.content_options?.step2_desc || 'Mendiskusikan motif desain (minimalis, klasik, industrial) serta menghitung ketebalan material hollow besi bergaransi standar SNI tebal penuh dalam SPK tertulis.'
     },
     {
       num: '03',
-      title: 'Fabrikasi Presisi di Workshop',
-      desc: 'Proses pemotongan baja, pengelasan keliling penuh oleh welder ahli bersertifikat BNSP, penghalusan sambungan las, hingga lapis antikarat epoxy primer zinc chromate.'
+      title: data.content_options?.step3_title || 'Fabrikasi Presisi di Workshop',
+      desc: data.content_options?.step3_desc || 'Proses pemotongan baja, pengelasan keliling penuh oleh welder ahli bersertifikat BNSP, penghalusan sambungan las, hingga lapis antikarat epoxy primer zinc chromate.'
     },
     {
       num: '04',
-      title: 'Pemasangan & QA Inspeksi',
-      desc: 'Pengiriman barang menggunakan armada mandiri dan perakitan rapi langsung di lokasi Anda. Kami menjamin hasil akhir kokoh, bersih, bergaransi penuh 1 tahun.'
+      title: data.content_options?.step4_title || 'Pemasangan & QA Inspeksi',
+      desc: data.content_options?.step4_desc || 'Pengiriman barang menggunakan armada mandiri dan perakitan rapi langsung di lokasi Anda. Kami menjamin hasil akhir kokoh, bersih, bergaransi penuh 1 tahun.'
     }
   ];
 

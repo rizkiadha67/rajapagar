@@ -190,6 +190,18 @@ function rajapagar_get_initial_data() {
             'whatsapp_formatted' => get_option('rajapagar_whatsapp_formatted', '+62 898-2440-404'),
             'email' => get_option('rajapagar_email', 'ptcahayajayaberkahnusantara@gmail.com'),
             'address' => get_option('rajapagar_address', 'PT Cahaya Jaya Berkah Nusantara, Indonesia')
+        ],
+        'content_options' => [
+            'hero_title' => get_option('rajapagar_hero_title', 'Konstruksi Besi Kokoh, Estetis & Bergaransi'),
+            'hero_desc' => get_option('rajapagar_hero_desc', 'Rajapagar.id mengerjakan pagar besi custom, kanopi tempered glass, railing tangga industrial, dan teralis minimalis premium se-Jabodetabek dengan garansi kekuatan las penuh.'),
+            'step1_title' => get_option('rajapagar_about_step1_title', 'Survey & Pengukuran Digital'),
+            'step1_desc' => get_option('rajapagar_about_step1_desc', 'Tim kami mendatangi lokasi Anda di Jabodetabek secara gratis untuk mengukur dimensi pagar, kanopi, atau tangga menggunakan laser meter digital presisi milimeter.'),
+            'step2_title' => get_option('rajapagar_about_step2_title', 'Desain Blueprints & Rencana SPK'),
+            'step2_desc' => get_option('rajapagar_about_step2_desc', 'Mendiskusikan motif desain (minimalis, klasik, industrial) serta menghitung ketebalan material hollow besi bergaransi standar SNI tebal penuh dalam SPK tertulis.'),
+            'step3_title' => get_option('rajapagar_about_step3_title', 'Fabrikasi Presisi di Workshop'),
+            'step3_desc' => get_option('rajapagar_about_step3_desc', 'Proses pemotongan baja, pengelasan keliling penuh oleh welder ahli bersertifikat BNSP, penghalusan sambungan las, hingga lapis antikarat epoxy primer zinc chromate.'),
+            'step4_title' => get_option('rajapagar_about_step4_title', 'Pemasangan & QA Inspeksi'),
+            'step4_desc' => get_option('rajapagar_about_step4_desc', 'Pengiriman barang menggunakan armada mandiri dan perakitan rapi langsung di lokasi Anda. Kami menjamin hasil akhir kokoh, bersih, bergaransi penuh 1 tahun.')
         ]
     ];
 
@@ -549,6 +561,21 @@ function rajapagar_settings_page_callback() {
         update_option('rajapagar_whatsapp_formatted', sanitize_text_field($_POST['rajapagar_whatsapp_formatted']));
         update_option('rajapagar_email', sanitize_email($_POST['rajapagar_email']));
         update_option('rajapagar_address', sanitize_textarea_field($_POST['rajapagar_address']));
+        
+        // New hero settings
+        update_option('rajapagar_hero_title', sanitize_text_field($_POST['rajapagar_hero_title']));
+        update_option('rajapagar_hero_desc', sanitize_textarea_field($_POST['rajapagar_hero_desc']));
+        
+        // New step settings
+        update_option('rajapagar_about_step1_title', sanitize_text_field($_POST['rajapagar_about_step1_title']));
+        update_option('rajapagar_about_step1_desc', sanitize_textarea_field($_POST['rajapagar_about_step1_desc']));
+        update_option('rajapagar_about_step2_title', sanitize_text_field($_POST['rajapagar_about_step2_title']));
+        update_option('rajapagar_about_step2_desc', sanitize_textarea_field($_POST['rajapagar_about_step2_desc']));
+        update_option('rajapagar_about_step3_title', sanitize_text_field($_POST['rajapagar_about_step3_title']));
+        update_option('rajapagar_about_step3_desc', sanitize_textarea_field($_POST['rajapagar_about_step3_desc']));
+        update_option('rajapagar_about_step4_title', sanitize_text_field($_POST['rajapagar_about_step4_title']));
+        update_option('rajapagar_about_step4_desc', sanitize_textarea_field($_POST['rajapagar_about_step4_desc']));
+        
         echo '<div class="updated"><p>Pengaturan Raja Pagar berhasil disimpan!</p></div>';
     }
 
@@ -556,10 +583,26 @@ function rajapagar_settings_page_callback() {
     $whatsapp_formatted = get_option('rajapagar_whatsapp_formatted', '+62 898-2440-404');
     $email = get_option('rajapagar_email', 'ptcahayajayaberkahnusantara@gmail.com');
     $address = get_option('rajapagar_address', 'PT Cahaya Jaya Berkah Nusantara, Indonesia');
+    
+    // Default hero values
+    $hero_title = get_option('rajapagar_hero_title', 'Konstruksi Besi Kokoh, Estetis & Bergaransi');
+    $hero_desc = get_option('rajapagar_hero_desc', 'Rajapagar.id mengerjakan pagar besi custom, kanopi tempered glass, railing tangga industrial, dan teralis minimalis premium se-Jabodetabek dengan garansi kekuatan las penuh.');
+    
+    // Default step values
+    $step1_title = get_option('rajapagar_about_step1_title', 'Survey & Pengukuran Digital');
+    $step1_desc = get_option('rajapagar_about_step1_desc', 'Tim kami mendatangi lokasi Anda di Jabodetabek secara gratis untuk mengukur dimensi pagar, kanopi, atau tangga menggunakan laser meter digital presisi milimeter.');
+    $step2_title = get_option('rajapagar_about_step2_title', 'Desain Blueprints & Rencana SPK');
+    $step2_desc = get_option('rajapagar_about_step2_desc', 'Mendiskusikan motif desain (minimalis, klasik, industrial) serta menghitung ketebalan material hollow besi bergaransi standar SNI tebal penuh dalam SPK tertulis.');
+    $step3_title = get_option('rajapagar_about_step3_title', 'Fabrikasi Presisi di Workshop');
+    $step3_desc = get_option('rajapagar_about_step3_desc', 'Proses pemotongan baja, pengelasan keliling penuh oleh welder ahli bersertifikat BNSP, penghalusan sambungan las, hingga lapis antikarat epoxy primer zinc chromate.');
+    $step4_title = get_option('rajapagar_about_step4_title', 'Pemasangan & QA Inspeksi');
+    $step4_desc = get_option('rajapagar_about_step4_desc', 'Pengiriman barang menggunakan armada mandiri dan perakitan rapi langsung di lokasi Anda. Kami menjamin hasil akhir kokoh, bersih, bergaransi penuh 1 tahun.');
     ?>
     <div class="wrap">
         <h1>Pengaturan Tema Rajapagar.id</h1>
+        <hr />
         <form method="post" action="">
+            <h2>1. Informasi Kontak Utama</h2>
             <table class="form-table">
                 <tr valign="top">
                     <th scope="row">No. WhatsApp (Hanya Angka, diawali kode negara, misal: 62898...)</th>
@@ -575,10 +618,70 @@ function rajapagar_settings_page_callback() {
                 </tr>
                 <tr valign="top">
                     <th scope="row">Alamat Lengkap Workshop</th>
-                    <td><textarea name="rajapagar_address" rows="4" cols="50" class="large-text"><?php echo esc_textarea($address); ?></textarea></td>
+                    <td><textarea name="rajapagar_address" rows="3" cols="50" class="large-text"><?php echo esc_textarea($address); ?></textarea></td>
                 </tr>
             </table>
-            <input type="submit" name="rajapagar_save_settings" class="button button-primary" value="Simpan Pengaturan" />
+
+            <hr />
+            <h2>2. Konten Banner Beranda (Hero Section)</h2>
+            <table class="form-table">
+                <tr valign="top">
+                    <th scope="row">Judul Utama Hero</th>
+                    <td><input type="text" name="rajapagar_hero_title" value="<?php echo esc_attr($hero_title); ?>" class="large-text" style="width: 100%; max-width: 600px;" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Deskripsi Hero</th>
+                    <td><textarea name="rajapagar_hero_desc" rows="3" class="large-text" style="width: 100%; max-width: 600px;"><?php echo esc_textarea($hero_desc); ?></textarea></td>
+                </tr>
+            </table>
+
+            <hr />
+            <h2>3. Alur Kerja Halaman Tentang Kami (4 Langkah Pipeline)</h2>
+            <table class="form-table">
+                <!-- Step 1 -->
+                <tr valign="top">
+                    <th scope="row">Langkah 1: Judul</th>
+                    <td><input type="text" name="rajapagar_about_step1_title" value="<?php echo esc_attr($step1_title); ?>" class="regular-text" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Langkah 1: Deskripsi</th>
+                    <td><textarea name="rajapagar_about_step1_desc" rows="2" class="large-text" style="width: 100%; max-width: 500px;"><?php echo esc_textarea($step1_desc); ?></textarea></td>
+                </tr>
+                
+                <!-- Step 2 -->
+                <tr valign="top">
+                    <th scope="row">Langkah 2: Judul</th>
+                    <td><input type="text" name="rajapagar_about_step2_title" value="<?php echo esc_attr($step2_title); ?>" class="regular-text" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Langkah 2: Deskripsi</th>
+                    <td><textarea name="rajapagar_about_step2_desc" rows="2" class="large-text" style="width: 100%; max-width: 500px;"><?php echo esc_textarea($step2_desc); ?></textarea></td>
+                </tr>
+
+                <!-- Step 3 -->
+                <tr valign="top">
+                    <th scope="row">Langkah 3: Judul</th>
+                    <td><input type="text" name="rajapagar_about_step3_title" value="<?php echo esc_attr($step3_title); ?>" class="regular-text" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Langkah 3: Deskripsi</th>
+                    <td><textarea name="rajapagar_about_step3_desc" rows="2" class="large-text" style="width: 100%; max-width: 500px;"><?php echo esc_textarea($step3_desc); ?></textarea></td>
+                </tr>
+
+                <!-- Step 4 -->
+                <tr valign="top">
+                    <th scope="row">Langkah 4: Judul</th>
+                    <td><input type="text" name="rajapagar_about_step4_title" value="<?php echo esc_attr($step4_title); ?>" class="regular-text" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Langkah 4: Deskripsi</th>
+                    <td><textarea name="rajapagar_about_step4_desc" rows="2" class="large-text" style="width: 100%; max-width: 500px;"><?php echo esc_textarea($step4_desc); ?></textarea></td>
+                </tr>
+            </table>
+
+            <p class="submit">
+                <input type="submit" name="rajapagar_save_settings" class="button button-primary" value="Simpan Pengaturan Tema" />
+            </p>
         </form>
     </div>
     <?php
