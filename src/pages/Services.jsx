@@ -473,28 +473,27 @@ export default function Services({ data }) {
               <LogoIcon size={14} color="#DCA54A" />
               <span>Daftar Layanan Konstruksi</span>
             </span>
-            <h2 className="section-title center" style={{ fontSize: '2.6rem', fontWeight: '800' }}>Pilihan Jasa Fabrikasi Besi &amp; Baja</h2>
-            <p className="section-desc" style={{ color: '#64748B' }}>
-              Kami memproduksi konstruksi logam berkualitas tinggi dengan hitungan ketebalan material yang jujur, pengelasan keliling penuh, dan ketepatan finishing.
-            </p>
+            <h2 className="section-title center" style={{ fontSize: '2.6rem', fontWeight: '800' }}>
+              {data.post?.title || "Pilihan Jasa Fabrikasi Besi & Baja"}
+            </h2>
 
-            {data.post?.content && (
+            {data.post?.content && data.post.content.trim() !== '<p>Silakan edit halaman ini melalui Dashboard WordPress Admin (Pages -> Edit) untuk mengubah tulisan di sini.</p>' && data.post.content.trim() !== '' ? (
               <div 
                 className="wp-editor-content"
                 dangerouslySetInnerHTML={{ __html: data.post.content }}
                 style={{
-                  marginTop: '30px',
-                  borderLeft: '3px solid #DCA54A',
-                  paddingLeft: '16px',
                   color: '#4A4A4A',
-                  textAlign: 'left',
                   maxWidth: '850px',
-                  margin: '30px auto 0 auto',
-                  backgroundColor: '#FAF5E5',
-                  padding: '16px',
-                  borderRadius: '0 12px 12px 0'
+                  margin: '20px auto 0 auto',
+                  fontSize: '1.05rem',
+                  lineHeight: '1.8',
+                  textAlign: 'center'
                 }}
               />
+            ) : (
+              <p className="section-desc" style={{ color: '#64748B' }}>
+                Kami memproduksi konstruksi logam berkualitas tinggi dengan hitungan ketebalan material yang jujur, pengelasan keliling penuh, dan ketepatan finishing.
+              </p>
             )}
           </div>
 

@@ -143,29 +143,24 @@ export default function Contact({ data }) {
               <span>Kontak Kantor Utama</span>
             </span>
             <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '20px' }}>
-              Konsultasi &amp; Estimasi Spek Besi
+              {data.post?.title || "Konsultasi & Estimasi Spek Besi"}
             </h2>
-            <p style={{ color: '#4A4A4A', lineHeight: '1.8', marginBottom: '30px', fontSize: '1.05rem' }}>
-              Punya gambar denah khusus atau coretan arsitek? Kirimkan kepada kami untuk survey lokasi pengukuran gratis se-Jabodetabek oleh tenaga las berpengalaman.
-            </p>
 
-            {data.post?.content && (
+            {data.post?.content && data.post.content.trim() !== '<p>Silakan edit halaman ini melalui Dashboard WordPress Admin (Pages -> Edit) untuk mengubah tulisan di sini.</p>' && data.post.content.trim() !== '' ? (
               <div 
                 className="wp-editor-content"
                 dangerouslySetInnerHTML={{ __html: data.post.content }}
                 style={{
-                  marginBottom: '28px',
-                  borderLeft: '3px solid #DCA54A',
-                  paddingLeft: '16px',
                   color: '#4A4A4A',
-                  fontSize: '0.95rem',
-                  lineHeight: '1.7',
-                  backgroundColor: '#FFFFFF',
-                  padding: '16px',
-                  borderRadius: '0 12px 12px 0',
-                  border: '1.5px solid #F0E6C5'
+                  fontSize: '1.05rem',
+                  lineHeight: '1.8',
+                  marginBottom: '30px'
                 }}
               />
+            ) : (
+              <p style={{ color: '#4A4A4A', lineHeight: '1.8', marginBottom: '30px', fontSize: '1.05rem' }}>
+                Punya gambar denah khusus atau coretan arsitek? Kirimkan kepada kami untuk survey lokasi pengukuran gratis se-Jabodetabek oleh tenaga las berpengalaman.
+              </p>
             )}
 
             <div className="contact-info-list" style={{ gap: '16px' }}>

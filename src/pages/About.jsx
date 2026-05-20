@@ -178,30 +178,30 @@ export default function About({ data }) {
               <Cpu size={14} style={{ color: '#DCA54A' }} />
               <span>Profil Bengkel Las Premium</span>
             </span>
-            <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '20px' }}>PT Cahaya Jaya Berkah Nusantara</h2>
-            <p style={{ fontSize: '1.1rem', color: '#0F172A', lineHeight: '1.8', marginBottom: '20px', fontWeight: '500' }}>
-              Melalui platform utama kami <strong>Rajapagar.id</strong>, kami hadir memberikan standar baru kemewahan, kejujuran, dan ketahanan dalam industri konstruksi logam Jabodetabek.
-            </p>
-            <p style={{ color: '#4A4A4A', marginBottom: '24px', lineHeight: '1.7' }}>
-              Kami menolak keras praktik mengurangi ketebalan pipa hollow (besi hollow banci) demi memotong biaya. Seluruh unit pagar otomatis, kanopi kaca tempered, teralis jendela minimalis, dan tangga cafe industrial kami dirakit oleh welder berlisensi BNSP menggunakan kawat las bermutu tinggi, digerinda presisi, serta diproteksi dengan cat dasar primer epoxy zinc chromate bermerek kelas satu.
-            </p>
+            <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '20px' }}>
+              {data.post?.title || "PT Cahaya Jaya Berkah Nusantara"}
+            </h2>
 
-            {data.post?.content && (
+            {data.post?.content && data.post.content.trim() !== '<p>Silakan edit halaman ini melalui Dashboard WordPress Admin (Pages -> Edit) untuk mengubah tulisan di sini.</p>' && data.post.content.trim() !== '' ? (
               <div 
                 className="wp-editor-content"
                 dangerouslySetInnerHTML={{ __html: data.post.content }}
                 style={{
-                  marginBottom: '28px',
-                  borderLeft: '3px solid #DCA54A',
-                  paddingLeft: '16px',
                   color: '#4A4A4A',
-                  fontSize: '0.95rem',
-                  lineHeight: '1.7',
-                  backgroundColor: '#FAF5E5',
-                  padding: '16px',
-                  borderRadius: '0 12px 12px 0'
+                  fontSize: '1.05rem',
+                  lineHeight: '1.8',
+                  marginBottom: '28px'
                 }}
               />
+            ) : (
+              <>
+                <p style={{ fontSize: '1.1rem', color: '#0F172A', lineHeight: '1.8', marginBottom: '20px', fontWeight: '500' }}>
+                  Melalui platform utama kami <strong>Rajapagar.id</strong>, kami hadir memberikan standar baru kemewahan, kejujuran, dan ketahanan dalam industri konstruksi logam Jabodetabek.
+                </p>
+                <p style={{ color: '#4A4A4A', marginBottom: '24px', lineHeight: '1.7' }}>
+                  Kami menolak keras praktik mengurangi ketebalan pipa hollow (besi hollow banci) demi memotong biaya. Seluruh unit pagar otomatis, kanopi kaca tempered, teralis jendela minimalis, dan tangga cafe industrial kami dirakit oleh welder berlisensi BNSP menggunakan kawat las bermutu tinggi, digerinda presisi, serta diproteksi dengan cat dasar primer epoxy zinc chromate bermerek kelas satu.
+                </p>
+              </>
             )}
             
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginTop: '20px' }}>
